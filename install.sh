@@ -34,9 +34,9 @@ mkdir -p ~/.config/rofi
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/polybar
 mkdir -p ~/.config/wallpaper
-cp -r .config/i3/ ~/.config/i3/
-cp .config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-cp .config/picom/picom.conf ~/.config/picom/picom.conf
-cp -r .config/rofi/ ~/.config/rofi/
-cp -r .config/polybar/* ~/.config/polybar/
-cp .config/wallpaper/wallpaper.jpg ~/.config/wallpaper/
+cp -r config/i3/ ~/.config/i3/
+cp config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+cp config/picom/picom.conf ~/.config/picom/picom.conf
+cp -r config/rofi/ ~/.config/rofi/
+cp -r config/polybar/* ~/.config/polybar/
+cp config/wallpaper/wallpaper.jpg ~/.config/wallpaper/
