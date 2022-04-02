@@ -22,8 +22,8 @@ lxappearance && sleep 20
 git clone https://github.com/Adapta-Projects/Papirus-Nord.git
 cd Papirus-Nord
 chmod u+x install
-./install && sleep 5 
-sudo /usr/bin/papirus-folders -C frostblue3
+sudo ./install && sleep 5 
+/usr/bin/papirus-folders -C frostblue3
 cd ..
 
 mkdir -p ~/.config/i3
