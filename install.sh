@@ -16,13 +16,13 @@ sudo apt install -f
 # GTK Nordic theme
 wget https://github.com/EliverLara/Nordic/archive/refs/tags/v2.1.0.zip
 sudo unzip v2.1.0.zip -d /usr/share/themes/
-lxappearance && sleep 30
+lxappearance && sleep 20
 
 # Papirus Nord 
 git clone https://github.com/Adapta-Projects/Papirus-Nord.git
 cd Papirus-Nord
 chmod u+x install
-Y | ./install
+./install && sleep 5 && Y
 /usr/bin/papirus-folders -C frostblue3
 cd ..
 
@@ -35,6 +35,7 @@ cp -r i3/ ~/.config/
 cp alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 cp compton/compton.conf ~/.config/compton/compton.conf
 cp -r rofi/ ~/.config/
+cp -rf rofifonts/* ~/.local/share/fonts/
 find ~/.config/rofi/ -type f -iname "*.sh" -exec chmod +x {} \;
 cp fehbg ~/.fehbg
 chmod u+x ~/.fehbg
@@ -45,4 +46,3 @@ sudo update-alternatives --config x-terminal-emulator
 
 # OhMyZsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cd ..
