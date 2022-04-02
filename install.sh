@@ -22,14 +22,15 @@ lxappearance && sleep 20
 git clone https://github.com/Adapta-Projects/Papirus-Nord.git
 cd Papirus-Nord
 chmod u+x install
-./install && sleep 5 && Y
-/usr/bin/papirus-folders -C frostblue3
+./install && sleep 5 
+sudo /usr/bin/papirus-folders -C frostblue3
 cd ..
 
 mkdir -p ~/.config/i3
 mkdir -p ~/.config/compton
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/alacritty
+mkdir -p ~/.local/share/fonts
 mkdir -p ~/.wallpaper
 cp -r i3/ ~/.config/
 cp alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
