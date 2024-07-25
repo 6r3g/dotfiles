@@ -88,6 +88,7 @@ mkdir -p ~/.config/picom
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/scripts
 mkdir -p ~/.config/xfce4/terminal
+mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
 mkdir -p ~/.local/share/xfce4/terminal/colorschemes
 
 cp config/btop/themes/* ~/.config/btop/themes/
