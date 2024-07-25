@@ -1,0 +1,80 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5
+}
+
+#order += "ipv6"
+order += "read_file ippub6"
+order += "read_file ippub4"
+order += "ethernet tailscale0"
+order += "wireless wlp2s0"
+order += "ethernet enp1s0"
+order += "battery all"
+order += "disk /"
+order += "load"
+order += "memory"
+order += "volume master"
+order += "tztime local"
+
+read_file ippub6 {
+	format = "v6: %content |"
+	format_bad = "v6: down |"
+        path = "/tmp/ippub6"
+}
+
+read_file ippub4 {
+        format = "v4: %content |"
+        format_bad = "v4: down |"
+        path = "/tmp/ippub4"
+}
+
+ethernet tailscale0 {
+        format_up = "TS: %ip |"
+        format_down = "TS: down |"
+}
+
+wireless wlp2s0 {
+        format_up = "W: %ip |"
+        format_down = "W: down |"
+}
+
+ethernet enp1s0 {
+        format_up = "E: %ip |"
+        format_down = "E: down |"
+}
+
+battery all {
+        format = "B: %percentage %remaining |"
+}
+
+disk "/" {
+        format = "D: %avail |"
+}
+
+load {
+        format = "L: %1min |"
+}
+
+memory {
+        format = "M: %used |"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+volume master {
+        format = "V: %volume |"
+        format_muted = "V: muted (%volume) |"
+        device = "pulse:alsa_output.pci-0000_04_00.6.analog-stereo"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S |"
+}
