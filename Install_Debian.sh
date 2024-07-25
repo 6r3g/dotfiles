@@ -8,7 +8,6 @@ sudo apt update && sudo apt install -y \
 
 # More repos
 sudo apt-add-repository -y contrib non-free non-free-firmware
-sudo apt update
 
 sudo apt update && sudo apt install -y \
     apt-transport-https \
@@ -42,7 +41,9 @@ sudo apt update && sudo apt install -y \
     pulseaudio pulseaudio-utils \
     qdirstat \
     qt5ct \
-    remmina remmina-plugin-rdp remmina-plugin-vnc \
+    remmina \
+    remmina-plugin-rdp \
+    remmina-plugin-vnc \
     ristretto \
     rofi \
     scrot \
@@ -56,7 +57,7 @@ sudo apt update && sudo apt install -y \
     tree \
     unclutter \
     unrar-free \
-    vagrant vagrant-vbguest \
+    vagrant \
     vim \
     vlc \
     wamerican \
@@ -69,7 +70,8 @@ sudo apt update && sudo apt install -y \
     xfce4-terminal \
     xxd \
     zathura \
-    zip unzip \
+    zip \
+    unzip \
 
 # Nerd Fonts
 mkdir -p ~/.local/share/fonts/
@@ -103,21 +105,14 @@ cp local/share/xfce4/terminal/colorschemes/ ~/.local/share/xfce4/terminal/colors
 # Install VS Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/keyrings/microsoft-archive-keyring.gpg
-sudo apt-add-repository "deb https://packages.microsoft.com/repos/vscode stable main"
-#sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+#sudo apt-add-repository "deb https://packages.microsoft.com/repos/vscode stable main"
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt update
 sudo apt install -y code
 
 # Install Docker
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+curl -fsSL "https://get.docker.com/" -o get-docker.sh
+sh get-docker.sh
 sudo usermod -aG docker $user
 newgrp docker
 
