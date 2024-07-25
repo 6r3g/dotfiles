@@ -3,6 +3,12 @@
 user=$(whoami)
 
 # Install base packages
+sudo apt update && sudo apt install -y \
+    software-properties-common \
+
+# More repos
+sudo apt-add-repository -y contrib non-free non-free-firmware
+sudo apt update
 
 sudo apt update && sudo apt install -y \
     apt-transport-https \
@@ -40,7 +46,6 @@ sudo apt update && sudo apt install -y \
     ristretto \
     rofi \
     scrot \
-    software-properties-common \
     ssh \
     sshfs \
     sshpass \
@@ -65,10 +70,6 @@ sudo apt update && sudo apt install -y \
     xxd \
     zathura \
     zip unzip \
-
-# More repos
-sudo apt-add-repository -y contrib non-free non-free-firmware
-sudo apt update
 
 # Nerd Fonts
 mkdir -p ~/.local/share/fonts/
