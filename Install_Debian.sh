@@ -90,7 +90,7 @@ mkdir -p ~/.config/scripts
 mkdir -p ~/.config/xfce4/terminal
 mkdir -p ~/.local/share/xfce4/terminal/colorschemes
 
-cp config/btop/themes/ ~/.config/btop/themes/
+cp config/btop/themes/* ~/.config/btop/themes/
 cp config/i3/config ~/.config/i3/config
 cp config/i3status/config ~/.config/i3status/config
 cp config/dunst/dunstrc ~/.config/dunst/dunstrc
@@ -98,9 +98,9 @@ cp config/picom/picom.conf ~/.config/picom/picom.conf
 cp config/rofi/*.rasi ~/.config/rofi/
 cp config/scripts/* ~/.config/scripts/
 chmod u+x ~/.config/i3/scripts/*.sh
-cp config/xfce4/terminal/* ~.config/xfce4/terminal/
-cp config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml ~.config/xfce4/xfconf/xfce-perchannel-xml/
-cp local/share/xfce4/terminal/colorschemes/ ~/.local/share/xfce4/terminal/colorschemes/
+cp config/xfce4/terminal/* ~/.config/xfce4/terminal/
+cp config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
+cp local/share/xfce4/terminal/colorschemes/* ~/.local/share/xfce4/terminal/colorschemes/
 
 # Install VS Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -111,8 +111,15 @@ sudo apt update
 sudo apt install -y code
 
 # Install Docker
-curl -fsSL "https://get.docker.com/" -o get-docker.sh
-sh get-docker.sh
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $user
 newgrp docker
 
