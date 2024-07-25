@@ -21,7 +21,7 @@ sudo apt update && sudo apt install -y \
     feh \
     firefox-esr \
     flameshot \
-    fonts-noto \
+    fonts-noto-color-emoji \
     git \
     gpg \
     i3 \
@@ -97,7 +97,7 @@ cp config/dunst/dunstrc ~/.config/dunst/dunstrc
 cp config/picom/picom.conf ~/.config/picom/picom.conf
 cp config/rofi/*.rasi ~/.config/rofi/
 cp config/scripts/* ~/.config/scripts/
-chmod u+x ~/.config/i3/scripts/*.sh
+chmod u+x ~/.config/scripts/*.sh
 cp config/xfce4/terminal/* ~/.config/xfce4/terminal/
 cp config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 cp local/share/xfce4/terminal/colorschemes/* ~/.local/share/xfce4/terminal/colorschemes/
