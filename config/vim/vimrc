@@ -1,0 +1,55 @@
+" settings
+
+syntax on
+colorscheme slate
+set mouse=a
+set number
+set nocompatible
+filetype on
+set cursorline
+set cursorcolumn
+set ruler
+set tabstop=4
+set ignorecase
+set showmode
+set showmatch
+set hlsearch
+" toujours 10 lignes en dessous
+set scrolloff=10
+" Pas de bip, flash à la place
+set noerrorbells
+set visualbell
+
+" Map leader key
+let mapleader = " "
+set timeoutlen=2000
+
+" Map normal mode
+"" Tabs
+nnoremap <Leader>tc :tabnew<Cr>
+nnoremap <Leader>tq :tabclose<Cr>
+nnoremap <Leader>tn :tabnext<Cr>
+nnoremap <Leader>tp :tabprevious<Cr>
+
+" Map insert mode
+"" 
+inoremap jj <esc>
+
+" Autocompletion
+set wildmenu
+set wildmode=list:longest
+
+" Clear status line when vimrc is reloaded.
+set statusline=
+
+" Status line left side.
+set statusline+=\ %F\ %M\ %Y\ %R
+
+" Use a divider to separate the left side from the right side.
+set statusline+=%=
+
+" Status line right side.
+set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+
+" Show the status on the second to last line.
+set laststatus=2
