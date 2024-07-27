@@ -3,13 +3,13 @@
 user=$(whoami)
 
 # Install base packages
-sudo apt update && sudo apt install -y \
+sudo apt-get update && sudo apt-get install -y \
     software-properties-common \
 
 # More repos
 sudo apt-add-repository -y contrib non-free non-free-firmware
 
-sudo apt update && sudo apt install -y \
+sudo apt-get update && sudo apt-get install -y \
     apt-transport-https \
     arandr \
     bind9-dnsutils \
@@ -112,8 +112,8 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/keyrings/microsoft-archive-keyring.gpg
 #sudo apt-add-repository "deb https://packages.microsoft.com/repos/vscode stable main"
 sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt update
-sudo apt install -y code
+sudo apt-get update
+sudo apt-get install -y code
 
 # Install Docker
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -123,8 +123,8 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $user
 
 # Install exegol
@@ -135,14 +135,19 @@ pipx ensurepath
 platform=$(systemd-detect-virt)
 if [ $platform == "none" ]; then 
   echo "[>] Not a in a VM : install vbox"
-  sudo apt install -y fasttrack-archive-keyring
+  sudo apt-get install -y fasttrack-archive-keyring
   sudo apt-add-repository -y "deb http://fasttrack.debian.net/debian-fasttrack/ $(. /etc/os-release && echo "$VERSION_CODENAME")-fasttrack main contrib"
   sudo apt-add-repository -y "deb http://fasttrack.debian.net/debian-fasttrack/ $(. /etc/os-release && echo "$VERSION_CODENAME")-backports-staging main contrib"
-  sudo apt update
-  sudo apt install -y virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso
+  sudo apt-get update
+  sudo apt-get install -y virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso
 else 
-  echo "[>] In a VM : Skip install vbox"
+  echo "[>] In a VM : install vbox guests tools"
+  # todo
 fi 
 
-
+# Install Tailscale
+curl -fsSL https://pkgs.tailscale.com/stable/debian/$(. /etc/os-release && echo "$VERSION_CODENAME").noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+curl -fsSL https://pkgs.tailscale.com/stable/debian/$(. /etc/os-release && echo "$VERSION_CODENAME").tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+sudo apt-get update
+sudo apt-get install tailscale
 
