@@ -125,7 +125,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo usermod -aG docker $user
+
 
 # Install exegol
 pipx install exegol
@@ -151,3 +151,6 @@ curl -fsSL https://pkgs.tailscale.com/stable/debian/$(. /etc/os-release && echo 
 sudo apt-get update
 sudo apt-get install tailscale
 
+# Groups
+sudo usermod -aG docker $user
+sudo usermod -aG wireshark $user
