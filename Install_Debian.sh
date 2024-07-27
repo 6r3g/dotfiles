@@ -76,7 +76,9 @@ sudo apt-get update && sudo apt-get install -y \
 # Nerd Fonts
 mkdir -p ~/.local/share/fonts/
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
+wget https://www.omnibus-type.com/wp-content/uploads/Saira-Semi-Condensed.zip
 unzip JetBrainsMono.zip -d ~/.local/share/fonts/
+unzip Saira-Semi-Condensed.zip -d ~/.local/share/fonts/
 fc-cache -fv
 
 # Config files
@@ -85,6 +87,7 @@ mkdir -p ~/.config/i3
 mkdir -p ~/.config/i3status
 mkdir -p ~/.config/dunst
 mkdir -p ~/.config/picom
+mkdir -p ~/.config/qt5ct
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/scripts
 mkdir -p ~/.config/xfce4/terminal
@@ -101,6 +104,7 @@ cp config/i3/config ~/.config/i3/config
 cp config/i3status/config ~/.config/i3status/config
 cp config/dunst/dunstrc ~/.config/dunst/dunstrc
 cp config/picom/picom.conf ~/.config/picom/picom.conf
+cp config/qt5ct/qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 cp config/rofi/*.rasi ~/.config/rofi/
 cp config/scripts/* ~/.config/scripts/
 chmod u+x ~/.config/scripts/*.sh
