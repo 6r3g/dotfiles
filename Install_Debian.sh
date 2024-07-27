@@ -92,6 +92,7 @@ mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
 mkdir -p ~/.local/share/xfce4/terminal/colorschemes
 
 cp config/bash/bash_aliases ~/.bash_aliases
+cp config/bash/bashrc ~/.bashrc
 cp config/nano/nanorc ~/.nanorc
 cp config/tmux/tmux.conf ~/.tmux.conf
 cp config/vim/vimrc ~/.vimrc
