@@ -159,3 +159,6 @@ sudo apt-get install -y tailscale
 # Groups
 sudo usermod -aG docker $user
 sudo usermod -aG wireshark $user
+
+# Cron
+(crontab -l 2>/dev/null; echo "@reboot $HOME/.config/scripts/i3status_ippub.sh") | crontab -
