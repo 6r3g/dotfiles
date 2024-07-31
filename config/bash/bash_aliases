@@ -21,4 +21,5 @@ alias .....='cd ../../../../'
 alias upd='sudo apt update &> /dev/null && apt list --upgradable'
 alias upg='sudo apt upgrade'
 alias tsup='sudo tailscale up'
-
+alias ipa='ip --brief --color a'
+alias ipr='ip --brief --color r'
