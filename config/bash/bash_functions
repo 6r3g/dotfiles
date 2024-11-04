@@ -12,14 +12,6 @@ convert_epoch () {
   date -d "@${1}" 
   }
 
-ff () {
-  find . -iname "*${1}*" 2>/dev/null 
-  }
-
-fd () {
-  find . -iname "*${1}*" -type d 2>/dev/null
-  }
-
 ip_grep () {
   grep -Eo \
     "([0-9]{1,3}\.){3}[0-9]{1,3}" "${@}" 

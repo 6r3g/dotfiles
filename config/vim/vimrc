@@ -1,55 +1,48 @@
 " settings
 
-syntax on
-colorscheme slate
-set mouse=a
-set number
-set nocompatible
-filetype on
-set cursorline
-set cursorcolumn
-set ruler
+syntax on	" detect syntax
+colorscheme catppuccin_mocha	" prefered color
+set mouse=a	" mouse activation
+set number	" numéro de ligne
+set nocompatible	" desactive vi compatibility
+set nobackup
+filetype on	" detecte le type de fichier
+set cursorline	" highlight ligne
+set cursorcolumn	" highlight colonne
+set ruler	" ruler pour statusline
 set tabstop=4
-set ignorecase
-set showmode
-set showmatch
-set hlsearch
-" toujours 10 lignes en dessous
-set scrolloff=10
-" Pas de bip, flash à la place
-set noerrorbells
-set visualbell
+set ignorecase	" insensible à la casse
+set showmode	" dans quel mode on est insert, normal, visual, ... 
+set showmatch	" match ouverture et fermeture ([{
+set hlsearch	" highlight recherche
+set scrolloff=10	" toujours 10 lignes en dessous du curseur
+set noerrorbells	" pas de bip
+set visualbell	" flash à la place du bip
+set clipboard=unnamed
+set termguicolors " couleurs fideles
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.docx,*.drawio,*.excalidraw,*.jpg,*.jpeg,*.png,*.gif,*.ico,*.iso,*.ods,*.odt,*.ova,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xcf,*.xlsx,*.webp,*.zip
 
-" Map leader key
-let mapleader = " "
-set timeoutlen=2000
+" Leader key
+let mapleader = " " " <space> en tant que leaderkey
+set timeoutlen=2000	" pas si vite... 2s
 
-" Map normal mode
-"" Tabs
-nnoremap <Leader>tc :tabnew<Cr>
-nnoremap <Leader>tq :tabclose<Cr>
-nnoremap <Leader>tn :tabnext<Cr>
-nnoremap <Leader>tp :tabprevious<Cr>
+" Mappings
+inoremap jj <esc>	" speedy escape
 
-" Map insert mode
-"" 
-inoremap jj <esc>
+nnoremap <Leader>tc :tabnew<Cr>	" nouvel onglet
+nnoremap <Leader>tq :tabclose<Cr>	" ferme onglet
+nnoremap <Leader>tn :tabnext<Cr>	" va au prochain onglet
+nnoremap <Leader>tp :tabprevious<Cr>	" va à l'onglet précédent
 
 " Autocompletion
 set wildmenu
 set wildmode=list:longest
 
-" Clear status line when vimrc is reloaded.
+" Status line
 set statusline=
-
-" Status line left side.
-set statusline+=\ %F\ %M\ %Y\ %R
-
-" Use a divider to separate the left side from the right side.
+set statusline+=\ %F\ \|\ modif:\ %M\ \|\ type:\ %Y\ \|\ read-only:\ %R\ \|
 set statusline+=%=
-
-" Status line right side.
-set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
-
-" Show the status on the second to last line.
+set statusline+=\|\ ascii:\ %b\ \|\ hex:\ 0x%B\ \|\ row:\ %l\ \|\ col:\ %c\ \|\ prct:\ %p%%\  
 set laststatus=2

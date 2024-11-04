@@ -12,12 +12,14 @@ sudo apt-add-repository -y contrib non-free non-free-firmware
 sudo apt-get update && sudo apt-get install -y \
     apt-transport-https \
     arandr \
+    bat \
     bind9-dnsutils \
     binutils \
     btop \
     cups \
     curl \
     duf \
+    fd-find \
     feh \
     firefox-esr \
     flameshot \
@@ -31,6 +33,7 @@ sudo apt-get update && sudo apt-get install -y \
     lightdm-gtk-greeter-settings \
     lightdm lightdm-gtk-greeter \
     lxappearance \
+    miller \
     mousepad \
     neofetch \
     net-tools \
@@ -47,6 +50,7 @@ sudo apt-get update && sudo apt-get install -y \
     ristretto \
     rofi \
     scrot \
+    silversearcher-ag \
     ssh \
     sshfs \
     sshpass \
@@ -59,6 +63,7 @@ sudo apt-get update && sudo apt-get install -y \
     unrar-free \
     vagrant \
     vim \
+    vim-gtk3 \
     vlc \
     wamerican \
     wfrench \
@@ -68,6 +73,7 @@ sudo apt-get update && sudo apt-get install -y \
     xclip \
     xfce4-power-manager \
     xfce4-terminal \
+    xsel \
     xxd \
     zathura \
     zip \
@@ -82,14 +88,17 @@ unzip Saira-Semi-Condensed.zip -d ~/.local/share/fonts/
 fc-cache -fv
 
 # Config files
+mkdir -p ~/.config/bat/themes
 mkdir -p ~/.config/btop/themes
 mkdir -p ~/.config/i3
 mkdir -p ~/.config/i3status
 mkdir -p ~/.config/dunst
+mkdir -p ~/.config/fzf/
 mkdir -p ~/.config/picom
 mkdir -p ~/.config/qt5ct
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/scripts
+mkdir -p ~/.config/vim/{autoload,colors}
 mkdir -p ~/.config/xfce4/terminal
 mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
 mkdir -p ~/.local/share/xfce4/terminal/colorschemes
@@ -97,21 +106,35 @@ mkdir -p ~/.local/share/xfce4/terminal/colorschemes
 cp config/bash/bash_aliases ~/.bash_aliases
 cp config/bash/bash_functions ~/.bash_functions
 cp config/bash/bashrc ~/.bashrc
-cp config/nano/nanorc ~/.nanorc
-cp config/tmux/tmux.conf ~/.tmux.conf
-cp config/vim/vimrc ~/.vimrc
+cp config/bat/config ~/.config/bat/
+cp config/bat/config/themes/* ~/.config/bat/themes/
 cp config/btop/themes/* ~/.config/btop/themes/
+cp config/dunst/dunstrc ~/.config/dunst/dunstrc
+cp config/fzf/*.bash ~/.config/fzf/
 cp config/i3/config ~/.config/i3/config
 cp config/i3status/config ~/.config/i3status/config
-cp config/dunst/dunstrc ~/.config/dunst/dunstrc
+cp config/nano/nanorc ~/.nanorc
 cp config/picom/picom.conf ~/.config/picom/picom.conf
 cp config/qt5ct/qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 cp config/rofi/*.rasi ~/.config/rofi/
 cp config/scripts/* ~/.config/scripts/
 chmod u+x ~/.config/scripts/*.sh
+cp local/share/xfce4/terminal/colorschemes/* ~/.local/share/xfce4/terminal/colorschemes/
+cp config/tmux/tmux.conf ~/.tmux.conf
+cp config/vim/vimrc ~/.config/vim/vimrc
+cp config/vim/colors/*.vim ~/.config/vim/colors/
+ln -s ~/.config/vim ~/.vim
+ln -s ~/.config/vim/vimrc ~/.vimrc
 cp config/xfce4/terminal/* ~/.config/xfce4/terminal/
 cp config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
-cp local/share/xfce4/terminal/colorschemes/* ~/.local/share/xfce4/terminal/colorschemes/
+
+# install recent FZF
+cd ~/.local/bin/
+wget https://github.com/junegunn/fzf/releases/download/v0.56.0/fzf-0.56.0-linux_amd64.tar.gz
+tar -xvzf fzf-0.56.0-linux_amd64.tar.gz
+chmod u+x fzf
+rm fzf-0.56.0-linux_amd64.tar.gz
+cd $OLDPWD
 
 # Install VS Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
