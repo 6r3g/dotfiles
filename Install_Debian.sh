@@ -156,11 +156,6 @@ echo \
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-
-# Install exegol
-pipx install exegol
-pipx ensurepath
-
 # install Virtualbox
 platform=$(systemd-detect-virt)
 if [ $platform == "none" ]; then 
