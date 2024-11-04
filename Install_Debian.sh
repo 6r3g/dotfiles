@@ -75,6 +75,7 @@ sudo apt-get update && sudo apt-get install -y \
     xfce4-terminal \
     xsel \
     xxd \
+    xz-utils \
     zathura \
     zip \
     unzip \
