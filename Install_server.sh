@@ -35,7 +35,7 @@ cp config/bash/bash_aliases ~/.bash_aliases
 cp config/bash/bash_functions ~/.bash_functions
 cp config/bash/bashrc ~/.bashrc
 cp config/bat/config ~/.config/bat/
-cp config/bat/config/themes/* ~/.config/bat/themes/
+cp config/bat/themes/* ~/.config/bat/themes/
 cp config/btop/themes/* ~/.config/btop/themes/
 cp config/fzf/*.bash ~/.config/fzf/
 cp config/nano/nanorc ~/.nanorc
