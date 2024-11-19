@@ -6,7 +6,6 @@ sudo apt-get update && sudo apt-get install -y \
     apt-transport-https \
     bat \
     bind9-dnsutils \
-    binutils \
     btop \
     curl \
     fd-find \
@@ -21,7 +20,6 @@ sudo apt-get update && sudo apt-get install -y \
     unrar-free \
     vim \
     whois \
-    xxd \
     xz-utils \
     zip \
     unzip \
@@ -50,6 +48,7 @@ ln -s ~/.config/vim ~/.vim
 ln -s ~/.config/vim/vimrc ~/.vimrc
 
 # install recent FZF
+mkdir -p ~/.local/bin
 cd ~/.local/bin/
 wget https://github.com/junegunn/fzf/releases/download/v0.56.3/fzf-0.56.3-linux_amd64.tar.gz
 tar -xvzf fzf-0.56.3-linux_amd64.tar.gz
