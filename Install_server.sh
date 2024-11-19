@@ -10,7 +10,6 @@ sudo apt-get update && sudo apt-get install -y \
     btop \
     curl \
     fd-find \
-    fzf \
     git \
     gpg \
     jq \
@@ -20,7 +19,6 @@ sudo apt-get update && sudo apt-get install -y \
     tmux \
     tree \
     unrar-free \
-    vagrant \
     vim \
     whois \
     xxd \
@@ -50,6 +48,14 @@ cp config/vim/vimrc ~/.config/vim/vimrc
 cp config/vim/colors/*.vim ~/.config/vim/colors/
 ln -s ~/.config/vim ~/.vim
 ln -s ~/.config/vim/vimrc ~/.vimrc
+
+# install recent FZF
+cd ~/.local/bin/
+wget https://github.com/junegunn/fzf/releases/download/v0.56.3/fzf-0.56.3-linux_amd64.tar.gz
+tar -xvzf fzf-0.56.3-linux_amd64.tar.gz
+chmod u+x fzf
+rm fzf-0.56.3-linux_amd64.tar.gz
+cd $OLDPWD
 
 # Install Docker
 sudo install -m 0755 -d /etc/apt/keyrings
