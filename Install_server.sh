@@ -48,7 +48,7 @@ ln -s ~/.config/vim ~/.vim
 ln -s ~/.config/vim/vimrc ~/.vimrc
 
 # bat theme
-bat cache --build
+batcat cache --build
 
 # install recent FZF
 mkdir -p ~/.local/bin
