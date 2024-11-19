@@ -49,11 +49,21 @@ ln -s ~/.config/vim/vimrc ~/.vimrc
 
 # install recent FZF
 mkdir -p ~/.local/bin
-cd ~/.local/bin/
+cd /tmp
 wget https://github.com/junegunn/fzf/releases/download/v0.56.3/fzf-0.56.3-linux_amd64.tar.gz
 tar -xvzf fzf-0.56.3-linux_amd64.tar.gz
 chmod u+x fzf
+mv fzf ~/.local/bin/
 rm fzf-0.56.3-linux_amd64.tar.gz
+cd $OLDPWD
+
+# install lazydocker
+cd /tmp
+wget https://github.com/jesseduffield/lazydocker/releases/download/v0.23.3/lazydocker_0.23.3_Linux_x86_64.tar.gz
+tar -xvzf lazydocker_0.23.3_Linux_x86_64.tar.gz
+chmod u+x lazydocker
+mv lazydocker ~/.local/bin/
+rm lazydocker_0.23.3_Linux_x86_64.tar.gz
 cd $OLDPWD
 
 # Install Docker
