@@ -14,6 +14,7 @@ sudo apt-get update && sudo apt-get install -y \
     jq \
     net-tools \
     nmap \
+    pwgen \
     silversearcher-ag \
     tmux \
     tree \

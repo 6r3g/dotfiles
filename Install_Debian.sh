@@ -42,6 +42,7 @@ sudo apt-get update && sudo apt-get install -y \
     peek \
     pipx \
     pulseaudio pulseaudio-utils \
+    pwgen \
     qdirstat \
     qt5ct \
     remmina \
