@@ -24,5 +24,6 @@ set functioncolor white
 set keycolor white
 set errorcolor black,red
 bind ^Z suspend main
+bind Sh-M-C "{execute}| xsel -ib {enter}{undo}" main
 #include "/usr/share/nano/*.nanorc"
 include "~/.config/nano/syntax/*.nanorc"
