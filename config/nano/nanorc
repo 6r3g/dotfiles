@@ -1,5 +1,28 @@
+# simple colors :
+# red,green,blue,magenta,yellow,cyan,white,black
+# advanced colors (256) :
+# pink,purple,mauve,lagoon,mint,lime,peach,orange,latte,rosy,beet,plum,sea,sky,
+# slate,teal,sage,brown,ocher,sand,tawny,brick,crimson
 set autoindent
 set mouse
 set tabsize 4
 set tabstospaces
-include "/usr/share/nano/*.nanorc"
+set linenumbers
+set casesensitive
+set constantshow
+set stateflags
+set minibar
+set nohelp
+#set guidestripe 80
+#set stripecolor ,grey
+set titlecolor white
+set minicolor white
+set numbercolor grey
+set statuscolor white
+set spotlightcolor black,lightyellow
+set functioncolor white
+set keycolor white
+set errorcolor black,red
+bind ^Z suspend main
+#include "/usr/share/nano/*.nanorc"
+include "~/.config/nano/syntax/*.nanorc"

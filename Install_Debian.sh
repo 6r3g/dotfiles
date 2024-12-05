@@ -1,7 +1,5 @@
 #!/bin/bash
 
-user=$(whoami)
-
 # Install base packages
 sudo apt-get update && sudo apt-get install -y \
     software-properties-common \
@@ -96,6 +94,7 @@ mkdir -p ~/.config/i3
 mkdir -p ~/.config/i3status
 mkdir -p ~/.config/dunst
 mkdir -p ~/.config/fzf/
+mkdir -p ~/.config/nano/syntax
 mkdir -p ~/.config/picom
 mkdir -p ~/.config/qt5ct
 mkdir -p ~/.config/rofi
@@ -115,7 +114,9 @@ cp config/dunst/dunstrc ~/.config/dunst/dunstrc
 cp config/fzf/*.bash ~/.config/fzf/
 cp config/i3/config ~/.config/i3/config
 cp config/i3status/config ~/.config/i3status/config
-cp config/nano/nanorc ~/.nanorc
+cp config/nano/syntax/*.nanorc ~/.config/nano/syntax/
+cp config/nano/nanorc ~/.config/nano/nanorc
+ln -s ~/.config/nano/nanorc ~/.nanorc
 cp config/picom/picom.conf ~/.config/picom/picom.conf
 cp config/qt5ct/qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 cp config/rofi/*.rasi ~/.config/rofi/
@@ -178,8 +179,8 @@ sudo apt-get update
 sudo apt-get install -y tailscale
 
 # Groups
-sudo usermod -aG docker $user
-sudo usermod -aG wireshark $user
+sudo usermod -aG docker $USER
+sudo usermod -aG wireshark $USER
 
 # Cron
 (crontab -l 2>/dev/null; echo "@reboot $HOME/.config/scripts/i3status_ippub.sh") | crontab -

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-user=$(whoami)
-
 sudo apt-get update && sudo apt-get install -y \
     apt-transport-https \
     bat \
@@ -29,6 +27,7 @@ sudo apt-get update && sudo apt-get install -y \
 mkdir -p ~/.config/bat/themes
 mkdir -p ~/.config/btop/themes
 mkdir -p ~/.config/fzf/
+mkdir -p ~/.config/nano/syntax
 mkdir -p ~/.config/scripts
 mkdir -p ~/.config/vim/{autoload,colors}
 
@@ -39,7 +38,9 @@ cp config/bat/config ~/.config/bat/
 cp config/bat/themes/* ~/.config/bat/themes/
 cp config/btop/themes/* ~/.config/btop/themes/
 cp config/fzf/*.bash ~/.config/fzf/
-cp config/nano/nanorc ~/.nanorc
+cp config/nano/syntax/*.nanorc ~/.config/nano/syntax/
+cp config/nano/nanorc ~/.config/nano/nanorc
+ln -s ~/.config/nano/nanorc ~/.nanorc
 cp config/scripts/* ~/.config/scripts/
 chmod u+x ~/.config/scripts/*.sh
 cp config/tmux/tmux.conf ~/.tmux.conf
@@ -88,4 +89,4 @@ sudo apt-get update
 sudo apt-get install -y tailscale
 
 # Groups
-sudo usermod -aG docker $user
+sudo usermod -aG docker $USER
