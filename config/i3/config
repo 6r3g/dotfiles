@@ -214,10 +214,10 @@ bindsym $mod+Shift+d exec ~/.config/scripts/rofi_change-layout.sh
 bindsym $mod+Shift+x exec ~/.config/scripts/rofi_tailscale.sh
 
 # resize window (you can also use the mouse for that)
-bindsym $mod+$Alt+Left resize shrink width 5 px or 5 ppt
-bindsym $mod+$Alt+Right resize grow width 5 px or 5 ppt
-bindsym $mod+$Alt+Down resize shrink height 5 px or 5 ppt
-bindsym $mod+$Alt+Up resize grow height 5 px or 5 ppt
+bindsym $mod+$Alt+Left resize shrink width 5 px
+bindsym $mod+$Alt+Right resize grow width 5 px
+bindsym $mod+$Alt+Down resize shrink height 5 px
+bindsym $mod+$Alt+Up resize grow height 5 px
 
 # Catppuccin Mocha colors
 set $rosewater #f5e0dc

@@ -1,0 +1,4 @@
+/* For a little padding in xfce4-terminal */
+VteTerminal, vte-terminal {
+    padding: 5px;
+} 
