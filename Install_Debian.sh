@@ -14,6 +14,7 @@ sudo apt-get update && sudo apt-get install -y \
     bind9-dnsutils \
     binutils \
     btop \
+    color-picker \
     cups \
     curl \
     duf \
@@ -37,6 +38,7 @@ sudo apt-get update && sudo apt-get install -y \
     net-tools \
     network-manager-gnome \
     nmap \
+    parallel \
     peek \
     pipx \
     pulseaudio pulseaudio-utils \
@@ -55,6 +57,7 @@ sudo apt-get update && sudo apt-get install -y \
     sshfs \
     sshpass \
     sslscan \
+    swaks \
     thunar \
     tmux \
     transmission \
