@@ -118,7 +118,6 @@ cp config/i3/config ~/.config/i3/config
 cp config/i3status/config ~/.config/i3status/config
 cp config/nano/syntax/*.nanorc ~/.config/nano/syntax/
 cp config/nano/nanorc ~/.config/nano/nanorc
-ln -s ~/.config/nano/nanorc ~/.nanorc
 cp config/picom/picom.conf ~/.config/picom/picom.conf
 cp config/qt5ct/qt5ct.conf ~/.config/qt5ct/qt5ct.conf
 cp config/rofi/*.rasi ~/.config/rofi/
