@@ -133,6 +133,10 @@ ln -s ~/.config/vim/vimrc ~/.vimrc
 cp config/xfce4/terminal/* ~/.config/xfce4/terminal/
 cp config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
 
+# install i3-swap-focus
+pipx install i3-swap-focus
+pipx ensurepath
+
 # install recent FZF
 cd ~/.local/bin/
 wget https://github.com/junegunn/fzf/releases/download/v0.60.1/fzf-0.60.1-linux_amd64.tar.gz
