@@ -22,7 +22,7 @@ sudo apt-get update && sudo apt-get install -y \
     firefox-esr \
     flameshot \
     fonts-noto-color-emoji \
-    git \
+    gammastep \
     gpg \
     i3 \
     imagemagick \
@@ -96,6 +96,7 @@ mkdir -p ~/.config/i3
 mkdir -p ~/.config/i3status
 mkdir -p ~/.config/dunst
 mkdir -p ~/.config/fzf/
+mkdir -p ~/.config/gammastep
 mkdir -p ~/.config/nano/syntax
 mkdir -p ~/.config/picom
 mkdir -p ~/.config/qt5ct
@@ -114,6 +115,7 @@ cp config/bat/config/themes/* ~/.config/bat/themes/
 cp config/btop/themes/* ~/.config/btop/themes/
 cp config/dunst/dunstrc ~/.config/dunst/dunstrc
 cp config/fzf/*.bash ~/.config/fzf/
+cp config/gammastep/config.ini ~/.config/gammastep.config.ini
 cp config/i3/config ~/.config/i3/config
 cp config/i3status/config ~/.config/i3status/config
 cp config/nano/syntax/*.nanorc ~/.config/nano/syntax/
