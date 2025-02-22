@@ -171,6 +171,13 @@ chmod u+x fzf
 rm lazydocker_0.24.1_Linux_x86_64.tar.gz
 cd $OLDPWD
 
+# install recent Hugo
+cd /tmp
+wget https://github.com/gohugoio/hugo/releases/download/v0.144.2/hugo_0.144.2_linux-amd64.deb
+sudo dpkg -i hugo_0.144.2_linux-amd64.deb
+rm hugo_0.144.2_linux-amd64.deb
+cd $OLDPWD
+
 # install Virtualbox
 platform=$(systemd-detect-virt)
 if [ $platform == "none" ]; then 
