@@ -41,6 +41,7 @@ sudo apt-get update && sudo apt-get install -y \
     pipx \
     pulseaudio pulseaudio-utils \
     pwgen \
+    python3-i3ipc \
     qdirstat \
     qt5ct \
     remmina \
