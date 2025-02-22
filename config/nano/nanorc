@@ -4,26 +4,28 @@
 # pink,purple,mauve,lagoon,mint,lime,peach,orange,latte,rosy,beet,plum,sea,sky,
 # slate,teal,sage,brown,ocher,sand,tawny,brick,crimson
 set autoindent
-set mouse
-set tabsize 4
-set tabstospaces
-set linenumbers
 set casesensitive
 set constantshow
-set stateflags
-set minibar
-set nohelp
-#set guidestripe 80
-#set stripecolor ,grey
-set titlecolor white
-set minicolor white
-set numbercolor grey
-set statuscolor white
-set spotlightcolor black,lightyellow
-set functioncolor white
-set keycolor white
 set errorcolor black,red
+set functioncolor white
+#set guidestripe 80
+set indicator
+set keycolor white
+set linenumbers
+set minibar
+set minicolor sea
+set mouse
+set nohelp
+set numbercolor grey
+set scrollercolor grey
+set selectedcolor black,lightblue
+set spotlightcolor black,lightyellow
+set stateflags
+set statuscolor white
+#set stripecolor ,grey
+set tabsize 4
+set tabstospaces
+set titlecolor white
 bind ^Z suspend main
 bind Sh-M-C "{execute}| xsel -ib {enter}{undo}" main
-#include "/usr/share/nano/*.nanorc"
 include "~/.config/nano/syntax/*.nanorc"
