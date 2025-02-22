@@ -135,10 +135,10 @@ cp config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml ~/.config/xfce4/xfconf/xfc
 
 # install recent FZF
 cd ~/.local/bin/
-wget https://github.com/junegunn/fzf/releases/download/v0.56.0/fzf-0.56.0-linux_amd64.tar.gz
-tar -xvzf fzf-0.56.0-linux_amd64.tar.gz
+wget https://github.com/junegunn/fzf/releases/download/v0.60.1/fzf-0.60.1-linux_amd64.tar.gz
+tar -xvzf fzf-0.60.1-linux_amd64.tar.gz
 chmod u+x fzf
-rm fzf-0.56.0-linux_amd64.tar.gz
+rm fzf-0.60.1-linux_amd64.tar.gz
 cd $OLDPWD
 
 # Install VS Code
@@ -159,6 +159,14 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# install recent Lazydocker
+cd ~/.local/bin/
+wget https://github.com/jesseduffield/lazydocker/releases/download/v0.24.1/lazydocker_0.24.1_Linux_x86_64.tar.gz
+tar -xvzf lazydocker_0.24.1_Linux_x86_64.tar.gz
+chmod u+x fzf
+rm lazydocker_0.24.1_Linux_x86_64.tar.gz
+cd $OLDPWD
 
 # install Virtualbox
 platform=$(systemd-detect-virt)
