@@ -82,8 +82,10 @@ sudo apt-get update && sudo apt-get install -y \
 # Nerd Fonts
 mkdir -p ~/.local/share/fonts/
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono.zip
 wget https://www.omnibus-type.com/wp-content/uploads/Saira-Semi-Condensed.zip
 unzip JetBrainsMono.zip -d ~/.local/share/fonts/
+unzip UbuntuMono.zip -d ~/.local/share/fonts/
 unzip Saira-Semi-Condensed.zip -d ~/.local/share/fonts/
 fc-cache -fv
 
