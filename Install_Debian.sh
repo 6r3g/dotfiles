@@ -192,6 +192,7 @@ sudo apt-get update
 sudo apt-get install -y tailscale
 
 # Groups
+sudo usermod -aG adm $USER
 sudo usermod -aG docker $USER
 sudo usermod -aG wireshark $USER
 
