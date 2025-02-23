@@ -184,6 +184,7 @@ cd /tmp
 wget https://github.com/gohugoio/hugo/releases/download/v0.144.2/hugo_0.144.2_linux-amd64.deb
 sudo dpkg -i hugo_0.144.2_linux-amd64.deb
 rm hugo_0.144.2_linux-amd64.deb
+hugo completion bash | sudo tee /etc/bash_completion.d/hugo >/dev/null
 cd $OLDPWD
 
 # install Virtualbox
@@ -205,6 +206,7 @@ curl -fsSL https://pkgs.tailscale.com/stable/debian/$(. /etc/os-release && echo 
 curl -fsSL https://pkgs.tailscale.com/stable/debian/$(. /etc/os-release && echo "$VERSION_CODENAME").tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 sudo apt-get update
 sudo apt-get install -y tailscale
+tailscale completion bash | sudo tee /etc/bash_completion.d/tailscale >/dev/null
 
 # Groups
 sudo usermod -aG adm $USER
