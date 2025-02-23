@@ -187,6 +187,13 @@ rm hugo_0.144.2_linux-amd64.deb
 hugo completion bash | sudo tee /etc/bash_completion.d/hugo >/dev/null
 cd $OLDPWD
 
+# install recent Obsidian
+cd /tmp
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.7/obsidian_1.8.7_amd64.deb
+sudo dpkg -i obsidian_1.8.7_amd64.deb
+rm obsidian_1.8.7_amd64.deb
+cd $OLDPWD
+
 # install Virtualbox
 platform=$(systemd-detect-virt)
 if [ $platform == "none" ]; then 
