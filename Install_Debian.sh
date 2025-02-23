@@ -109,6 +109,7 @@ mkdir -p ~/.config/scripts
 mkdir -p ~/.config/vim/{autoload,colors}
 mkdir -p ~/.config/xfce4/terminal
 mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
+mkdir -p ~/.config/xmodmap
 mkdir -p ~/.local/share/xfce4/terminal/colorschemes
 
 cp config/bash/bash_aliases ~/.bash_aliases
@@ -137,6 +138,7 @@ ln -s ~/.config/vim ~/.vim
 ln -s ~/.config/vim/vimrc ~/.vimrc
 cp config/xfce4/terminal/* ~/.config/xfce4/terminal/
 cp config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml/
+cp config/xmodmap/Xmodmap ~/.config/xmodmap/
 
 # install i3-swap-focus
 pipx install i3-swap-focus
@@ -144,10 +146,10 @@ pipx ensurepath
 
 # install recent FZF
 cd ~/.local/bin/
-wget https://github.com/junegunn/fzf/releases/download/v0.60.1/fzf-0.60.1-linux_amd64.tar.gz
-tar -xvzf fzf-0.60.1-linux_amd64.tar.gz
+wget https://github.com/junegunn/fzf/releases/download/v0.60.2/fzf-0.60.2-linux_amd64.tar.gz
+tar -xvzf fzf-0.60.2-linux_amd64.tar.gz
 chmod u+x fzf
-rm fzf-0.60.1-linux_amd64.tar.gz
+rm fzf-0.60.2-linux_amd64.tar.gz
 cd $OLDPWD
 
 # Install VS Code
