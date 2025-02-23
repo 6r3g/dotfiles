@@ -194,6 +194,13 @@ sudo dpkg -i obsidian_1.8.7_amd64.deb
 rm obsidian_1.8.7_amd64.deb
 cd $OLDPWD
 
+# install synology drive client
+cd /tmp
+wget https://global.synologydownload.com/download/Utility/SynologyDriveClient/3.5.2-16110/Ubuntu/Installer/synology-drive-client-16110.x86_64.deb
+sudo dpkg -i synology-drive-client-16110.x86_64.deb
+rm synology-drive-client-16110.x86_64.deb
+cd $OLDPWD
+
 # install Virtualbox
 platform=$(systemd-detect-virt)
 if [ $platform == "none" ]; then 
