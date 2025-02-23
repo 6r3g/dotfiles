@@ -120,7 +120,7 @@ cp config/bat/config/themes/* ~/.config/bat/themes/
 cp config/btop/themes/* ~/.config/btop/themes/
 cp config/dunst/dunstrc ~/.config/dunst/dunstrc
 cp config/fzf/*.bash ~/.config/fzf/
-cp config/gammastep/config.ini ~/.config/gammastep.config.ini
+cp config/gammastep/config.ini ~/.config/gammastep/config.ini
 cp config/i3/config ~/.config/i3/config
 cp config/i3status/config ~/.config/i3status/config
 cp config/nano/syntax/*.nanorc ~/.config/nano/syntax/
