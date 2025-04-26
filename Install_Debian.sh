@@ -121,6 +121,7 @@ cp config/btop/themes/* ~/.config/btop/themes/
 cp config/dunst/dunstrc ~/.config/dunst/dunstrc
 cp config/fzf/*.bash ~/.config/fzf/
 cp config/gammastep/config.ini ~/.config/gammastep/config.ini
+cp config/gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
 cp config/i3/config ~/.config/i3/config
 cp config/i3status/config ~/.config/i3status/config
 cp config/nano/syntax/*.nanorc ~/.config/nano/syntax/
