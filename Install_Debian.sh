@@ -211,6 +211,7 @@ if [ $platform == "none" ]; then
   sudo apt-add-repository -y "deb http://fasttrack.debian.net/debian-fasttrack/ $(. /etc/os-release && echo "$VERSION_CODENAME")-backports-staging main contrib"
   sudo apt-get update
   sudo apt-get install -y virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso
+  sudo usermod -aG vboxusers $USER
 else 
   echo "[>] In a VM : install vbox guests tools"
   # todo
