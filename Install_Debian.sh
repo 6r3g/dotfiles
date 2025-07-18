@@ -202,6 +202,13 @@ sudo dpkg -i synology-drive-client-16110.x86_64.deb
 rm synology-drive-client-16110.x86_64.deb
 cd $OLDPWD
 
+# install bitwarden cli
+cd /tmp
+wget https://bitwarden.com/download/?app=cli&platform=linux
+unzip bw-linux*.zip
+mv bw ~/.local/bin/
+cd $OLDPWD
+
 # install Virtualbox
 platform=$(systemd-detect-virt)
 if [ $platform == "none" ]; then 

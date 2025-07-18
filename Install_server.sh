@@ -71,6 +71,13 @@ mv lazydocker ~/.local/bin/
 rm lazydocker_0.23.3_Linux_x86_64.tar.gz
 cd $OLDPWD
 
+# install bitwarden cli
+cd /tmp
+wget https://bitwarden.com/download/?app=cli&platform=linux
+unzip bw-linux*.zip
+mv bw ~/.local/bin/
+cd $OLDPWD
+
 # Install Docker
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
