@@ -23,9 +23,12 @@ sudo apt-get update && sudo apt-get install -y \
     firefox-esr \
     flameshot \
     fonts-noto-color-emoji \
+    freerdp2-x11 \
     gammastep \
+    gnupg gnupg-agent \
     gpg \
     i3 \
+    i3ipc \
     imagemagick \
     jq \
     libimage-exiftool-perl \
@@ -39,6 +42,7 @@ sudo apt-get update && sudo apt-get install -y \
     network-manager-gnome \
     nmap \
     parallel \
+    pcscd \
     peek \
     pipx \
     pulseaudio pulseaudio-utils \
@@ -51,6 +55,7 @@ sudo apt-get update && sudo apt-get install -y \
     remmina-plugin-vnc \
     ristretto \
     rofi \
+    scdaemon \
     scrot \
     silversearcher-ag \
     ssh \
@@ -58,7 +63,9 @@ sudo apt-get update && sudo apt-get install -y \
     sshpass \
     sslscan \
     swaks \
+    tcpdump \
     thunar \
+    thunderbird \
     tmux \
     transmission \
     tree \
@@ -68,12 +75,14 @@ sudo apt-get update && sudo apt-get install -y \
     vim \
     vim-gtk3 \
     vlc \
+    wakeonlan \
     wamerican \
     wfrench \
     whois \
     wireshark tshark\
     xarchiver \
     xclip \
+    xdotool \
     xfce4-power-manager \
     xfce4-terminal \
     xsel \
