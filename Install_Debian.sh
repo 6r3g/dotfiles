@@ -37,6 +37,7 @@ sudo apt-get update && sudo apt-get install -y \
     lxappearance \
     miller \
     mousepad \
+    mtr-tiny \
     neofetch \
     net-tools \
     network-manager-gnome \
@@ -85,6 +86,7 @@ sudo apt-get update && sudo apt-get install -y \
     xdotool \
     xfce4-power-manager \
     xfce4-terminal \
+    xournalpp \
     xsel \
     xxd \
     xz-utils \
