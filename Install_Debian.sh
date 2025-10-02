@@ -68,6 +68,7 @@ sudo apt-get update && sudo apt-get install -y \
     tcpdump \
     thunar \
     thunderbird \
+    tldr \
     tmux \
     transmission \
     tree \
