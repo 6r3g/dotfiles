@@ -55,6 +55,7 @@ sudo apt-get update && sudo apt-get install -y \
     remmina-plugin-rdp \
     remmina-plugin-vnc \
     ristretto \
+    rlwrap \
     rofi \
     scdaemon \
     scrot \
