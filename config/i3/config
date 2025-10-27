@@ -5,24 +5,30 @@ set $CapsLock Mod3
 set $Super Mod4
 font pango:UbuntuMono Nerd Font 10
 
+for_window [class=".*"] title_format "%class - %title"
+
 exec_always --no-startup-id "picom --config ~/.config/picom/picom.conf"
 exec --no-startup-id "dex --autostart --environment i3"
 exec --no-startup-id "unclutter -idle 3 -root"
 exec --no-startup-id "gammastep-indicator"
-exec --no-startup-id "xfce4-clipman"
+#exec --no-startup-id "xfce4-clipman"
 exec --no-startup-id "feh --no-fehbg --bg-scale ~/Pictures/Wallpapers/base.jpg"
 exec --no-startup-id "i3-sensible-terminal"
 exec --no-startup-id "xfce4-terminal --role=ScratchTerm --title=ScratchTerm"
 exec --no-startup-id "/usr/bin/thunar"
-exec "touch $XDG_RUNTIME_DIR/i3/swap_focus.pid && ~/.local/bin/i3-swap-focus"
+#exec "touch $XDG_RUNTIME_DIR/i3/swap_focus.pid && ~/.local/bin/i3-swap-focus"
+exec "i3-swap-focus"
 
 # no title, borders and gaps specs
 default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders smart
 smart_gaps on
-gaps inner 10px
-gaps outer -8px
+gaps inner 5px
+gaps outer -3px
+
+# focus don't follow mouse position
+focus_follows_mouse no
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -33,69 +39,100 @@ bindsym XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SO
 
 # Use Mouse+$Super to drag floating windows to their wanted position
 floating_modifier $Super
-
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
 # lock screen
-bindsym $Super+Shift+l exec "~/.config/scripts/i3_blur-lock.sh"
+# (ctrl_r=105)
+bindcode $Super+Shift+105 exec "~/.config/scripts/i3_blur-lock.sh"
 
 # start a terminal
-bindsym $Super+Return exec i3-sensible-terminal
+# (return=36)
+bindcode $Super+36 exec i3-sensible-terminal
 
 # kill focused window
-bindsym $Super+Shift+q kill
-bindsym $CapsLock+q kill
+# (q=38)
+bindcode $Super+Shift+38 kill
+bindcode $CapsLock+38 kill
 
 # start dmenu (a program launcher)
-bindsym $Super+d exec "rofi -modi drun,run -show drun"
+# (d=40)
+bindcode $Super+40 exec "rofi -modi drun,run -show drun"
 
 # Apps
-bindsym $Super+w exec "/usr/bin/firefox"
-bindsym $Super+Shift+n exec "/usr/bin/thunar"
-bindsym Print exec "/usr/bin/flameshot gui"
+# (w=52;n=57;printscr=107)
+bindcode $Super+52 exec "/usr/bin/firefox"
+bindcode $Super+Shift+57 exec "/usr/bin/thunar"
+bindcode 107 exec "/usr/bin/flameshot gui"
 
 # change focus
-bindsym $Super+Left focus left
-bindsym $Super+Down focus down
-bindsym $Super+Up focus up
-bindsym $Super+Right focus right
+# (left=113;down=116;up=111;right=114)
+# (h=43;j=44;k=45;l=46)
+bindcode $Super+113 focus left
+bindcode $Super+43 focus left
+bindcode $Super+116 focus down
+bindcode $Super+44 focus down
+bindcode $Super+111 focus up
+bindcode $Super+45 focus up
+bindcode $Super+114 focus right
+bindcode $Super+46 focus right
 
 # move focused window
-bindsym $Super+Shift+Left move left
-bindsym $Super+Shift+Down move down
-bindsym $Super+Shift+Up move up
-bindsym $Super+Shift+Right move right
+# (left=113;down=116;up=111;right=114)
+# (h=43;j=44;k=45;l=46)
+bindcode $Super+Shift+113 move left
+bindcode $Super+Shift+43 move left
+bindcode $Super+Shift+116 move down
+bindcode $Super+Shift+44 move down
+bindcode $Super+Shift+111 move up
+bindcode $Super+Shift+45 move up
+bindcode $Super+Shift+114 move right
+bindcode $Super+Shift+46 move right
+
+# resize window 
+# (left=113;down=116;up=111;right=114)
+# (h=43;j=44;k=45;l=46)
+bindcode $Super+$Alt+113 resize shrink width 5 px
+bindcode $Super+$Alt+43 resize shrink width 5 px
+bindcode $Super+$Alt+114 resize grow width 5 px
+bindcode $Super+$Alt+44 resize grow width 5 px
+bindcode $Super+$Alt+116 resize shrink height 5 px
+bindcode $Super+$Alt+45 resize shrink height 5 px
+bindcode $Super+$Alt+111 resize grow height 5 px
+bindcode $Super+$Alt+46 resize grow height 5 px
 
 # split in horizontal/vertical and toggle between us
-bindsym $Super+h split h
-bindsym $Super+v split v
-bindsym $Super+z layout toggle split
+# (g=42;v=55;z=25)
+bindcode $Super+42 split h
+bindcode $Super+55 split v
+bindcode $Super+25 layout toggle split
 
 # fullscreen mode for the focused container
-bindsym $Super+f fullscreen toggle
+# (f=41)
+bindcode $Super+41 fullscreen toggle
 
 # back and forth, change workspace
-#bindsym $Super+Tab workspace back_and_forth
-bindsym $Super+Tab exec "pkill -USR1 -F ${XDG_RUNTIME_DIR}/swap_focus.pid"
-bindsym $Super+Ctrl+Left workspace prev
-bindsym $Super+Ctrl+Right workspace next
+workspace_auto_back_and_forth yes
+# (tab=23)
+bindcode $Super+23 workspace back_and_forth
+bindcode $Super+Shift+23 exec pkill -USR1 -F "${XDG_RUNTIME_DIR}/swap_focus.pid"
+bindcode $Super+Ctrl+113 workspace prev
+bindcode $Super+Ctrl+114 workspace next
 
 # default layout, change container layout (stacked, tabbed, toggle split)
 workspace_layout tabbed
-bindsym $Super+e layout toggle splith tabbed
-bindsym $Super+t layout tabbed
-
-# toggle tiling / floating
-bindsym $Super+Shift+space floating toggle
+# (e=26;t=28)
+bindcode $Super+26 layout toggle splith tabbed
+bindcode $Super+28 layout tabbed
 
 # change focus between tiling / floating windows
-bindsym $Super+space focus mode_toggle
+# (space=65)
+bindcode $Super+65 focus mode_toggle
+bindcode $Super+Shift+65 floating toggle
 
 # focus the parent/child container
-bindsym $Super+a focus parent
-bindsym $Super+Shift+a focus child
+# (a=24)
+bindcode $Super+24 focus parent
+bindcode $Super+Shift+24 focus child
 
 # Assign program to workspace
 assign [class="Xfce4-terminal" window_role="^(?i)(?!ScratchTerm).*"] 1
@@ -111,12 +148,14 @@ for_window [class="(?i)firefox"] focus
 for_window [class="Thunar"] focus
 for_window [class="Ristretto"] focus
 
-# Scratchpad stuffs
-bindsym $Super+Shift+s move scratchpad
-bindsym $Super+s exec "rofi -show scratchpad -modi scratchpad:~/.config/scripts/rofi_i3_scratchpad.sh"
-bindsym $Super+n [class=Thunar] scratchpad show
-bindsym $Super+b [title="Extension: (Bitwarden Password Manager)*"] scratchpad show
-bindsym $Super+exclam [window_role="ScratchTerm"] scratchpad show
+# Window specifics
+
+# Scratchpad stuffs (s=39;n=57;b=56;exclam/slash=61)
+bindcode $Super+Shift+39 move scratchpad
+bindcode $Super+39 exec "rofi -show scratchpad -modi scratchpad:~/.config/scripts/rofi_i3_scratchpad.sh"
+bindcode $Super+57 [class=Thunar] scratchpad show
+bindcode $Super+56 [title="Extension: (Bitwarden Password Manager)*"] scratchpad show
+bindcode $Super+61 [window_role="ScratchTerm"] scratchpad show
 
 # floating rules
 # WM_CLASS(STRING) = "instance", "class"
@@ -124,91 +163,104 @@ for_window [window_role=page-info|pop-up|bubble|task_dialog|Preferences|dialog|m
 for_window [class="qt5ct" instance="qt5ct"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [window_role="GtkFileChooserDialog"] floating enable, resize set 900 620, move absolute position center
-for_window [class="Thunar" title="(?i)- Thunar"] floating enable, mark "ignore_focus", move scratchpad, resize set 1280 800, move absolute position center
+for_window [class="Thunar" title="(?i)- Thunar"] floating enable, mark --add "ignore_focus", move scratchpad, resize set 1280 800, move absolute position center
 for_window [class="VirtualBox" title="(?i)- Settings"] floating enable, resize set 1280 720, move absolute position center
 for_window [class="VirtualBox" title="(?i)- Preferences"] floating enable, resize set 1280 720, move absolute position center
 for_window [class="Wireshark" title="(?i)·"] floating enable, resize set 1280 720, move absolute position center
 for_window [class="Xarchiver"] floating enable, resize set 1280 720, move absolute position center
 for_window [class="transmission-gtk"] floating enable, resize set 900 720, move absolute position center
+for_window [class="Blueman-manager"] floating enable, resize set 900 720, move absolute position center
 for_window [class="flameshot"] floating enable, resize set 720 720, move absolute position center
 for_window [class="Arandr"] floating enable, resize set 720 720, move absolute position center
 for_window [class="Lxappearance"] floating enable, resize set 900 620, move absolute position center
-for_window [class="Xfce4-terminal" window_role="ScratchTerm"] floating enable, mark "ignore_focus", move scratchpad, resize set 1600 900, move absolute position center
-for_window [class="Espanso"] floating enable,mark "ignore_focus", resize set 875 375, move absolute position center
-for_window [class="firefox-esr" title="Extension: (Bitwarden Password Manager)*"] floating enable, mark "ignore_focus", move scrathpad
-for_window [class="ColorPicker"] floating enable,mark "ignore_focus", resize set 860 780
+for_window [class="Signal"] floating enable, resize set 900 820, move absolute position center
+for_window [class="Xfce4-terminal" window_role="ScratchTerm"] floating enable, mark --add "ignore_focus", move scratchpad, resize set 1600 900, move absolute position center
+for_window [class="Espanso"] floating enable,mark --add "ignore_focus", resize set 875 375, move absolute position center
+for_window [class="firefox-esr" title="(?i)Extension: (Bitwarden Password Manager)*"] floating enable, mark --add "ignore_focus", move scrathpad
+for_window [class="ColorPicker"] floating enable,mark --add "ignore_focus", resize set 860 780
+for_window [title="(?i)FIDO2.1 Manager*"] floating enable,mark --add "ignore_focus", resize set 860 780
+for_window [title="(?i)Resident Keys*"] floating enable,mark --add "ignore_focus", resize set 860 780
+for_window [title="(?i)Document Print Status*"] floating enable,mark --add "ignore_focus", resize set 550 250, move absolute position center
+for_window [title="(?i)Print Settings*"] floating enable,mark --add "ignore_focus", resize set 550 450, move absolute position center
+
 
 # switch to workspace
-bindsym $Super+ampersand workspace number 1
-bindsym $Super+eacute workspace number 2
-bindsym $Super+quotedbl workspace number 3
-bindsym $Super+apostrophe workspace number 4
-bindsym $Super+parenleft workspace number 5
-bindsym $Super+minus workspace number 6
-bindsym $Super+egrave workspace number 7
-bindsym $Super+underscore workspace number 8
-bindsym $Super+ccedilla workspace number 9
-bindsym $Super+agrave workspace number 10
-bindsym $CapsLock+ampersand workspace number 11
-bindsym $CapsLock+eacute workspace number 12
-bindsym $CapsLock+quotedbl workspace number 13
-bindsym $CapsLock+apostrophe workspace number 14
-bindsym $CapsLock+parenleft workspace number 15
-bindsym $CapsLock+minus workspace number 16
-bindsym $CapsLock+egrave workspace number 17
-bindsym $CapsLock+underscore workspace number 18
-bindsym $CapsLock+ccedilla workspace number 19
-bindsym $CapsLock+agrave workspace number 20
+bindcode $Super+10 workspace number 1
+bindcode $Super+11 workspace number 2
+bindcode $Super+12 workspace number 3
+bindcode $Super+13 workspace number 4
+bindcode $Super+14 workspace number 5
+bindcode $Super+15 workspace number 6
+bindcode $Super+16 workspace number 7
+bindcode $Super+17 workspace number 8
+bindcode $Super+18 workspace number 9
+bindcode $Super+19 workspace number 10
+bindcode $CapsLock+10 workspace number 11
+bindcode $CapsLock+11 workspace number 12
+bindcode $CapsLock+12 workspace number 13
+bindcode $CapsLock+13 workspace number 14
+bindcode $CapsLock+14 workspace number 15
+bindcode $CapsLock+15 workspace number 16
+bindcode $CapsLock+16 workspace number 17
+bindcode $CapsLock+17 workspace number 18
+bindcode $CapsLock+18 workspace number 19
+bindcode $CapsLock+19 workspace number 20
 
 # move focused container to workspace
-bindsym $Super+Shift+ampersand move container to workspace number 1
-bindsym $Super+Shift+eacute move container to workspace number 2
-bindsym $Super+Shift+quotedbl move container to workspace number 3
-bindsym $Super+Shift+apostrophe move container to workspace number 4
-bindsym $Super+Shift+5 move container to workspace number 5
-bindsym $Super+Shift+minus move container to workspace number 6
-bindsym $Super+Shift+egrave move container to workspace number 7
-bindsym $Super+Shift+underscore move container to workspace number 8
-bindsym $Super+Shift+ccedilla move container to workspace number 9
-bindsym $Super+Shift+agrave move container to workspace number 10
-bindsym $CapsLock+Shift+ampersand move container to workspace number 11
-bindsym $CapsLock+Shift+eacute move container to workspace number 12
-bindsym $CapsLock+Shift+quotedbl move container to workspace number 13
-bindsym $CapsLock+Shift+apostrophe move container to workspace number 14
-bindsym $CapsLock+Shift+5 move container to workspace number 15
-bindsym $CapsLock+Shift+minus move container to workspace number 16
-bindsym $CapsLock+Shift+egrave move container to workspace number 17
-bindsym $CapsLock+Shift+underscore move container to workspace number 18
-bindsym $CapsLock+Shift+ccedilla move container to workspace number 19
-bindsym $CapsLock+Shift+agrave move container to workspace number 20
+bindcode $Super+Shift+10 move container to workspace number 1
+bindcode $Super+Shift+11 move container to workspace number 2
+bindcode $Super+Shift+12 move container to workspace number 3
+bindcode $Super+Shift+13 move container to workspace number 4
+bindcode $Super+Shift+14 move container to workspace number 5
+bindcode $Super+Shift+15 move container to workspace number 6
+bindcode $Super+Shift+16 move container to workspace number 7
+bindcode $Super+Shift+17 move container to workspace number 8
+bindcode $Super+Shift+18 move container to workspace number 9
+bindcode $Super+Shift+19 move container to workspace number 10
+bindcode $CapsLock+Shift+10 move container to workspace number 11
+bindcode $CapsLock+Shift+11 move container to workspace number 12
+bindcode $CapsLock+Shift+12 move container to workspace number 13
+bindcode $CapsLock+Shift+13 move container to workspace number 14
+bindcode $CapsLock+Shift+14 move container to workspace number 15
+bindcode $CapsLock+Shift+15 move container to workspace number 16
+bindcode $CapsLock+Shift+16 move container to workspace number 17
+bindcode $CapsLock+Shift+17 move container to workspace number 18
+bindcode $CapsLock+Shift+18 move container to workspace number 19
+bindcode $CapsLock+Shift+19 move container to workspace number 20
 
 # reload config file / restart or exit i3wm
-bindsym $Super+Shift+c reload
-bindsym $Super+Shift+r restart
-bindsym $Super+Shift+e exec "rofi -show power-menu -modi power-menu:~/.config/scripts/rofi_power-menu.sh"
+# (c=54;r=27;e=26;backspace=22)
+bindcode $Super+Shift+54 reload
+bindcode $Super+Shift+27 restart
+bindcode $Super+Shift+22 exec "rofi -show power-menu -modi power-menu:~/.config/scripts/rofi_power-menu.sh"
 
 # arandr / xrandr change layout
-bindsym $Super+Shift+d exec "~/.config/scripts/rofi_change-layout.sh"
+# (d=40)
+bindcode $Super+Shift+40 exec "~/.config/scripts/rofi_change-layout.sh"
 # tailscale command
-bindsym $Super+Shift+x exec "~/.config/scripts/rofi_tailscale.sh"
+# (x=53)
+bindcode $Super+Shift+53 exec "~/.config/scripts/rofi_tailscale.sh"
 # virtualbox quick access
-bindsym $Super+Shift+v exec "~/.config/scripts/rofi_virtualbox.sh"
-
-# resize window (you can also use the mouse for that)
-bindsym $Super+$Alt+Left resize shrink width 5 px
-bindsym $Super+$Alt+Right resize grow width 5 px
-bindsym $Super+$Alt+Down resize shrink height 5 px
-bindsym $Super+$Alt+Up resize grow height 5 px
+# (v=55)
+bindcode $Super+Shift+55 exec "~/.config/scripts/rofi_virtualbox.sh"
 
 # move floating windows with keys
-bindsym $Super+m mode "move" focus floating
+# (m=47)
+# (left=113;down=116;up=111;right=114)
+# (h=43;j=44;k=45;l=46)
+bindcode $Super+47 mode "move" focus floating
 mode "move" {
-    bindsym Left  move left
-    bindsym Down  move down
-    bindsym Up    move up
-    bindsym Right move right
+    bindcode 113 move left
+	bindcode 43 move left
+    bindcode 116 move down
+	bindcode 44 move down
+    bindcode 111 move up
+	bindcode 45 move up
+    bindcode 114 move right
+	bindcode 46 move right
     # back to normal: Enter or Escape
-    bindsym Escape mode "default"
+	# (escape=9)
+    bindcode 9 mode "default"
 }
 
 # Catppuccin Mocha colors
