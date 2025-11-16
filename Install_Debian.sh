@@ -7,6 +7,9 @@ sudo apt-get update && sudo apt-get install -y \
 # More repos
 sudo apt-add-repository -y contrib non-free non-free-firmware
 
+# disable annoying beep !
+sudo echo 'blacklist pcspkr' > /etc/modprobe.d/nobeep.conf
+
 sudo apt-get update && sudo apt-get install -y \
     apt-transport-https \
     arandr \
