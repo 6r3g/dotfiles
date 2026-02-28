@@ -20,6 +20,7 @@ sudo apt-get update && sudo apt-get install -y \
     color-picker \
     cups \
     curl \
+    direnv \
     duf \
     fd-find \
     feh \
@@ -30,6 +31,8 @@ sudo apt-get update && sudo apt-get install -y \
     gammastep \
     gnupg gnupg-agent \
     gpg \
+    gvfs-backends \
+    gvfs-fuse \
     i3 \
     i3ipc \
     imagemagick \
@@ -44,6 +47,7 @@ sudo apt-get update && sudo apt-get install -y \
     neofetch \
     net-tools \
     network-manager-gnome \
+    network-manager-openvpn-gnome \
     nmap \
     parallel \
     pcscd \
@@ -98,11 +102,13 @@ sudo apt-get update && sudo apt-get install -y \
     zathura \
     zip \
     unzip \
+    virt-viewer \
+    wakeonlan \
 
 # Nerd Fonts
 mkdir -p ~/.local/share/fonts/
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/UbuntuMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/UbuntuMono.zip
 wget https://www.omnibus-type.com/wp-content/uploads/Saira-Semi-Condensed.zip
 unzip JetBrainsMono.zip -d ~/.local/share/fonts/
 unzip UbuntuMono.zip -d ~/.local/share/fonts/
@@ -163,10 +169,10 @@ pipx ensurepath
 
 # install recent FZF
 cd ~/.local/bin/
-wget https://github.com/junegunn/fzf/releases/download/v0.60.2/fzf-0.60.2-linux_amd64.tar.gz
-tar -xvzf fzf-0.60.2-linux_amd64.tar.gz
+wget https://github.com/junegunn/fzf/releases/download/v0.68.0/fzf-0.68.0-linux_amd64.tar.gz
+tar -xvzf fzf-0.68.0-linux_amd64.tar.gz
 chmod u+x fzf
-rm fzf-0.60.2-linux_amd64.tar.gz
+rm fzf-0.68.0-linux_amd64.tar.gz
 cd $OLDPWD
 
 # Install VS Code
@@ -190,10 +196,10 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 
 # install recent Lazydocker
 cd ~/.local/bin/
-wget https://github.com/jesseduffield/lazydocker/releases/download/v0.24.1/lazydocker_0.24.1_Linux_x86_64.tar.gz
-tar -xvzf lazydocker_0.24.1_Linux_x86_64.tar.gz
+wget https://github.com/jesseduffield/lazydocker/releases/download/v0.24.4/lazydocker_0.24.4_Linux_x86_64.tar.gz
+tar -xvzf lazydocker_0.24.4_Linux_x86_64.tar.gz
 chmod u+x fzf
-rm lazydocker_0.24.1_Linux_x86_64.tar.gz
+rm lazydocker_0.24.4_Linux_x86_64.tar.gz
 cd $OLDPWD
 
 # install recent Hugo
@@ -206,16 +212,16 @@ cd $OLDPWD
 
 # install recent Obsidian
 cd /tmp
-wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.7/obsidian_1.8.7_amd64.deb
-sudo dpkg -i obsidian_1.8.7_amd64.deb
-rm obsidian_1.8.7_amd64.deb
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/obsidian_1.12.4_amd64.deb
+sudo dpkg -i obsidian_1.12.4_amd64.deb
+rm obsidian_1.12.4_amd64.deb
 cd $OLDPWD
 
 # install synology drive client
 cd /tmp
-wget https://global.synologydownload.com/download/Utility/SynologyDriveClient/3.5.2-16110/Ubuntu/Installer/synology-drive-client-16110.x86_64.deb
-sudo dpkg -i synology-drive-client-16110.x86_64.deb
-rm synology-drive-client-16110.x86_64.deb
+wget https://global.synologydownload.com/download/Utility/SynologyDriveClient/4.0.2-17889/Ubuntu/Installer/synology-drive-client-17889.x86_64.deb
+sudo dpkg -i synology-drive-client-17889.x86_64.deb
+rm synology-drive-client-17889.x86_64.deb
 cd $OLDPWD
 
 # install bitwarden cli
